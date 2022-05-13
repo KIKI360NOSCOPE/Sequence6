@@ -1,9 +1,6 @@
 import { StyleSheet, Text, View, FlatList, Image } from 'react-native'
 import React from 'react'
-import TitleComponent from './TitleComponent'
-import DescComponent from './DescComponent'
-import ImgComponent from './ImgComponent'
-import tpList from 'sequence6/assets/tp.json';
+import tpList from '../../assets/tp.json'
 
 const ListeComponent = () => {
     return (
