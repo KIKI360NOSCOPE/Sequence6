@@ -6,22 +6,50 @@ import ImgComponent from './ImgComponent'
 import tpList from 'sequence6/assets/tp.json';
 
 const ListeComponent = () => {
-  return (
-    <FlatList
-    data={tpList}
-    renderItem={({ item }) => (
-      <View style={{ flex: 1, flexDirection: 'row' }}>
-        <ImgComponent />
-        <View style={{ flex: 1, flexDirection: 'column' }}>
-          <TitleComponent />
-          <DescComponent />
+    return (
+        <View style={{ flex: 1, flexDirection: 'row', marginTop: 35 }}>
+          <FlatList
+            data={tpList}
+            renderItem={({ item }) => (
+              <View style={{ flex: 1, flexDirection: 'row' }}>
+                <View style={{ flex: 1, flexDirection: 'column' }}>
+                  <Image source={{ uri: item.img }} style={styles.itemImg} />
+                </View>
+                <View style={{ flex: 1, flexDirection: 'column' }}>
+                  <Text style={styles.itemTitle}>{item.title}</Text>
+                  <Text style={styles.itemDesc}>{item.desc}</Text>
+                </View>
+              </View>
+            )}
+            keyExtractor={item => item.id}
+          />
         </View>
-      </View>
-    )}
-    keyExtractor={item => item.id}
-  />
-  )
-}
+      );
+    }
+
+    const styles = StyleSheet.create({
+        itemImg: {
+            flex: 1,
+            width: '75%',
+            height: '75%',
+            margin: 10,
+        },
+        itemTitle: {
+            flex: 1,
+            padding: 10,
+            fontSize: 20,
+            margin: 10,
+          },
+          itemDesc: {
+            flex: 1,
+            padding: 10,
+            fontSize: 15,
+            margin: 10,
+          },
+      
+    });
+    
+
 
 export default ListeComponent
 
